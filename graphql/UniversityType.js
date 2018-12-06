@@ -1,12 +1,15 @@
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLString } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql;
 
 const UniversityType = new GraphQLObjectType({
   name: "University",
   fields: () => ({
-    id: { type: GraphQLString },
+    id: { type: GraphQLID },
+    acronym: { type: GraphQLString },
+    address: { type: GraphQLString },
+    schoolWebsite: { type: GraphQLString },
     name: { type: GraphQLString },
-    type: { type: GraphQLString },
+    ownership: { type: GraphQLString },
     location: { type: GraphQLString }
   })
 });

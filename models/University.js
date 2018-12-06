@@ -3,8 +3,11 @@ const Schema = mongoose.Schema;
 
 const UniversitySchema = new Schema({
   name: String,
-  type: String,
-  location: String
+  ownership: String,
+  location: String,
+  acronym: String,
+  address: String,
+  schoolWebsite: String
 });
 
 module.exports = mongoose.model("Universities", UniversitySchema);
