@@ -1,7 +1,6 @@
 const graphql = require("graphql");
 const UniversityType = require("./UniversityType");
 const University = require("../models/University");
-const _ = require("lodash");
 
 const {
   GraphQLObjectType,
@@ -43,12 +42,12 @@ const Mutation = new GraphQLObjectType({
     addUniversity: {
       type: UniversityType,
       args: {
-        acronym: { type: new GraphQLNonNull(GraphQLString) },
-        address: { type: GraphQLString },
-        schoolWebsite: { type: GraphQLString },
         name: { type: new GraphQLNonNull(GraphQLString) },
+        acronym: { type: new GraphQLNonNull(GraphQLString) },
         ownership: { type: new GraphQLNonNull(GraphQLString) },
-        location: { type: new GraphQLNonNull(GraphQLString) }
+        location: { type: new GraphQLNonNull(GraphQLString) },
+        address: { type: GraphQLString },
+        schoolWebsite: { type: GraphQLString }
       },
       resolve(parent, args) {
         let university = new University({
