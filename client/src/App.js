@@ -6,7 +6,7 @@ import EndPoint from "./containers/EndPoint";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql"
+  uri: "https://universities-api.herokuapp.com/graphql"
 });
 
 class App extends Component {
