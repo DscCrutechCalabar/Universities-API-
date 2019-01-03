@@ -10,4 +10,4 @@ const UniversitySchema = new Schema({
   schoolWebsite: String
 });
 
-module.exports = mongoose.model("Universities", UniversitySchema);
+module.exports = mongoose.model("University", UniversitySchema);
