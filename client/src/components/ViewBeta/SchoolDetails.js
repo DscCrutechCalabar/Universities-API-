@@ -9,29 +9,23 @@ class SchoolDetails extends Component {
       return university.map(school => {
         return (
           <div key={school.acronym}>
-            <div>
-              <h3 style={{ display: "contents" }}>Name : </h3>{" "}
-              <p style={{ display: "contents" }}>{school.name}</p>
+            <div className="details">
+              <h3>Name : </h3> <p>{school.name}</p>
             </div>
-            <div>
-              <h3 style={{ display: "contents" }}>Acronym : </h3>{" "}
-              <p style={{ display: "contents" }}>{school.acronym}</p>
+            <div className="details">
+              <h3>Acronym : </h3> <p>{school.acronym}</p>
             </div>
-            <div>
-              <h3 style={{ display: "contents" }}>Ownership : </h3>{" "}
-              <p style={{ display: "contents" }}>{school.ownership}</p>
+            <div className="details">
+              <h3>Ownership : </h3> <p>{school.ownership}</p>
             </div>
-            <div>
-              <h3 style={{ display: "contents" }}>School Website : </h3>{" "}
-              <p style={{ display: "contents" }}>{school.schoolWebsite}</p>
+            <div className="details">
+              <h3>School Website : </h3> <p>{school.schoolWebsite}</p>
             </div>
-            <div>
-              <h3 style={{ display: "contents" }}>Location : </h3>{" "}
-              <p style={{ display: "contents" }}>{school.location}</p>
+            <div className="details">
+              <h3>Location : </h3> <p>{school.location}</p>
             </div>
-            <div>
-              <h3 style={{ display: "contents" }}>Address : </h3>{" "}
-              <p style={{ display: "contents" }}>{school.address}</p>
+            <div className="details">
+              <h3>Address : </h3> <p>{school.address}</p>
             </div>
           </div>
         );

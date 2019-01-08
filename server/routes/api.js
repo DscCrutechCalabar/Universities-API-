@@ -8,10 +8,15 @@ router.get("/universities", (req, res) => {
   });
 });
 
-router.get("/university/:acronym", (req, res) => {
+router.get("/universities/?:acronym", (req, res) => {
   University.find({ acronym: req.params.acronym }).then(universities => {
     res.send(universities);
   });
 });
 
+router.get("/university/?:ownership", (req, res) => {
+  University.find({ ownership: req.params.ownership }).then(universities => {
+    res.send(universities);
+  });
+});
 module.exports = router;

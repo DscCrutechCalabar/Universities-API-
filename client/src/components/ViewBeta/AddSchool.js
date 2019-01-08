@@ -36,6 +36,7 @@ class AddSchool extends Component {
   render() {
     return (
       <form id="add-school" onSubmit={this.submitForm.bind(this)}>
+        <h1>Add School</h1>
         <div className="field">
           <label>School Name:</label>
           <input
