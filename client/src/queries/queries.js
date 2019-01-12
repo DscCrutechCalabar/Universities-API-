@@ -15,7 +15,7 @@ const getUniversitiesQuery = gql`
 `;
 
 const addUniversityMutation = gql`
-  mutation(
+  mutation addUniversityMutation(
     $name: String!
     $acronym: String!
     $ownership: String!
@@ -37,6 +37,15 @@ const addUniversityMutation = gql`
   }
 `;
 
+const removeUniversity = gql`
+  mutation removeUniversity($acronym: String!) {
+    removeUniversity(acronym: $acronym) {
+      name
+      acronym
+    }
+  }
+`;
+
 const getUniversityQuery = gql`
   query($acronym: String) {
     university(acronym: $acronym) {
@@ -50,4 +59,9 @@ const getUniversityQuery = gql`
   }
 `;
 
-export { getUniversitiesQuery, addUniversityMutation, getUniversityQuery };
+export {
+  getUniversitiesQuery,
+  addUniversityMutation,
+  getUniversityQuery,
+  removeUniversity
+};

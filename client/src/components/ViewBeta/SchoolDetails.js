@@ -1,14 +1,26 @@
 import React, { Component } from "react";
-import { graphql } from "react-apollo";
-import { getUniversityQuery } from "../../queries/queries";
+import { graphql, compose } from "react-apollo";
+import {
+  getUniversityQuery,
+  removeUniversity,
+  getUniversitiesQuery
+} from "../../queries/queries";
 
 class SchoolDetails extends Component {
+  delete() {
+    this.props.removeUniversity({
+      refetchQueries: [{ query: getUniversitiesQuery, getUniversityQuery }]
+    });
+  }
+
   displaySchoolDetails() {
-    const { university } = this.props.data;
+    const { university } = this.props.getUniversityQuery;
     if (university) {
       return university.map(school => {
         return (
           <div key={school.acronym}>
+            <button onClick={this.delete.bind(this)}>Delete</button>
+            <button>Update</button>
             <div className="details">
               <h3>Name : </h3> <p>{school.name}</p>
             </div>
@@ -30,7 +42,7 @@ class SchoolDetails extends Component {
           </div>
         );
       });
-    } else {
+    } else if (!university) {
       return <div>No School Selected...</div>;
     }
   }
@@ -39,12 +51,26 @@ class SchoolDetails extends Component {
   }
 }
 
-export default graphql(getUniversityQuery, {
-  options: props => {
-    return {
-      variables: {
-        acronym: props.schoolId
-      }
-    };
-  }
-})(SchoolDetails);
+export default compose(
+  graphql(getUniversityQuery, {
+    name: "getUniversityQuery",
+    options: props => {
+      return {
+        variables: {
+          acronym: props.schoolId
+        }
+      };
+    }
+  }),
+  graphql(removeUniversity, {
+    name: "removeUniversity",
+    options: props => {
+      return {
+        variables: {
+          acronym: props.schoolId
+        }
+      };
+    }
+  }),
+  graphql(getUniversitiesQuery, { name: "getUniversitiesQuery" })
+)(SchoolDetails);

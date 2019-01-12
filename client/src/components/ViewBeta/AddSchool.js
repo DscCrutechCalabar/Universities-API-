@@ -3,7 +3,7 @@ import {
   addUniversityMutation,
   getUniversitiesQuery
 } from "../../queries/queries";
-import { graphql } from "react-apollo";
+import { graphql, compose } from "react-apollo";
 
 class AddSchool extends Component {
   constructor(props) {
@@ -20,10 +20,18 @@ class AddSchool extends Component {
 
   submitForm(e) {
     e.preventDefault();
-    this.props.mutate({
+    const data = this.props.getUniversitiesQuery;
+    data.universities.map(school => {
+      const acronyms = school.acronym;
+      if (this.state.acronym.toLocaleLowerCase() === acronyms) {
+        alert("School Already Exists");
+        throw new console.error("failed");
+      }
+    });
+    this.props.addUniversityMutation({
       variables: {
         name: this.state.name,
-        acronym: this.state.acronym,
+        acronym: this.state.acronym.toLocaleLowerCase(),
         ownership: this.state.ownership,
         location: this.state.location,
         address: this.state.address,
@@ -42,6 +50,7 @@ class AddSchool extends Component {
           <input
             type="text"
             onChange={e => this.setState({ name: e.target.value })}
+            required
           />
         </div>
 
@@ -50,6 +59,7 @@ class AddSchool extends Component {
           <input
             type="text"
             onChange={e => this.setState({ acronym: e.target.value })}
+            required
           />
         </div>
 
@@ -58,6 +68,7 @@ class AddSchool extends Component {
           <input
             type="text"
             onChange={e => this.setState({ ownership: e.target.value })}
+            required
           />
         </div>
 
@@ -66,6 +77,7 @@ class AddSchool extends Component {
           <input
             type="text"
             onChange={e => this.setState({ location: e.target.value })}
+            required
           />
         </div>
 
@@ -74,6 +86,7 @@ class AddSchool extends Component {
           <input
             type="text"
             onChange={e => this.setState({ address: e.target.value })}
+            required
           />
         </div>
 
@@ -91,4 +104,7 @@ class AddSchool extends Component {
   }
 }
 
-export default graphql(addUniversityMutation)(AddSchool);
+export default compose(
+  graphql(addUniversityMutation, { name: "addUniversityMutation" }),
+  graphql(getUniversitiesQuery, { name: "getUniversitiesQuery" })
+)(AddSchool);

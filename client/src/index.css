@@ -18,7 +18,8 @@ body {
 #university-list {
   padding: 0;
   overflow: auto;
-  height: 200px;
+  height: 150px;
+  width: 800px;
 }
 
 #university-list li {
