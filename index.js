@@ -29,7 +29,7 @@ app.get("*", (req, res) => {
 });
 
 //connect to db
-// var databaseUrl = "mongodb://localhost/universities"; // for development
+//var databaseUrl = "mongodb://localhost/universities"; // for development
 var databaseUrl =
   "mongodb://DSC-Calabar:calabar001@ds121814.mlab.com:21814/universities-api"; //for prodcution
 mongoose.connect(

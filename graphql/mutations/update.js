@@ -3,7 +3,7 @@ const UniversityType = require("../types/UniversityType");
 const University = require("../../models/University");
 const { GraphQLString, GraphQLNonNull } = graphql;
 
-const update = {
+const updateUniversity = {
   type: UniversityType,
   args: {
     name: { type: new GraphQLNonNull(GraphQLString) },
@@ -31,4 +31,4 @@ const update = {
   }
 };
 
-module.exports = update;
+module.exports = updateUniversity;

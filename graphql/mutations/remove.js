@@ -6,11 +6,11 @@ const { GraphQLString, GraphQLNonNull } = graphql;
 const removeUniversity = {
   type: UniversityType,
   args: {
-    acronym: { type: new GraphQLNonNull(GraphQLString) }
+    name: { type: new GraphQLNonNull(GraphQLString) }
   },
   resolve(parent, args) {
     const removed = University.findOneAndDelete({
-      acronym: args.acronym
+      name: args.name
     }).exec();
     if (!removed) {
       throw new Error("Error");

@@ -33,7 +33,7 @@ body {
   color: #880e4f;
 }
 
-form {
+#add-school {
   background: #fff;
   padding: 20px;
   position: fixed;
@@ -88,7 +88,7 @@ form button {
 }
 
 @media screen and (max-width: 900px) {
-  form {
+  #add-school {
     padding: 0;
     width: 100%;
     position: relative;

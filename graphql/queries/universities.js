@@ -10,9 +10,9 @@ RootQuery = new GraphQLObjectType({
   fields: {
     university: {
       type: new GraphQLList(UniversityType),
-      args: { acronym: { type: GraphQLString } },
+      args: { name: { type: GraphQLString } },
       resolve(parent, args) {
-        return University.find({ acronym: args.acronym });
+        return University.find({ name: args.name });
       }
     },
     universities: {

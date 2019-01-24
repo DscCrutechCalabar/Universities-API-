@@ -22,8 +22,8 @@ class AddSchool extends Component {
     e.preventDefault();
     const data = this.props.getUniversitiesQuery;
     data.universities.map(school => {
-      const acronyms = school.acronym;
-      if (this.state.acronym.toLocaleLowerCase() === acronyms) {
+      const names = school.name;
+      if (this.state.name === names) {
         alert("School Already Exists");
         throw new console.error("failed");
       }

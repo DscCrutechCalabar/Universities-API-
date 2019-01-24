@@ -21,7 +21,7 @@ class UniversityList extends Component {
           <li
             key={school.id}
             onClick={e => {
-              this.setState({ selected: school.acronym });
+              this.setState({ selected: school.name });
             }}
           >
             {" "}
