@@ -1,0 +1,29 @@
+{
+  "name": "universities-api-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThaTruth24/Universities-API-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThaTruth24/Universities-API-/issues"
+  },
+  "homepage": "https://github.com/ThaTruth24/Universities-API-#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
+    "mongoose": "^5.3.14",
+    "nodemon": "^1.18.7"
+  }
+}
